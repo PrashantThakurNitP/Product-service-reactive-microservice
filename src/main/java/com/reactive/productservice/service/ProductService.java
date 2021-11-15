@@ -1,6 +1,7 @@
 package com.reactive.productservice.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Range;
 import org.springframework.stereotype.Service;
 
 import com.reactive.productservice.dto.ProductDto;
@@ -20,7 +21,10 @@ public class ProductService {
 		return this.repository.findAll()
 		.map(EntityDtoUtil::toDto);
 	}
-	
+	public Flux<ProductDto> getProductByPriceRange(int min, int max){
+		return this.repository.findByPriceBetween(Range.closed(min, max))//we want to include min and max value
+		.map(EntityDtoUtil::toDto);
+	}
 	public Mono<ProductDto> getProductById(String id){
 		return this.repository.findById(id)
 				.map(EntityDtoUtil::toDto);
