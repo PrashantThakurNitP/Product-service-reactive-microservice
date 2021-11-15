@@ -43,11 +43,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
+		<!-- disable embeded mongo db to use mongo installed by docker compose file -->
+		<!-- <dependency>
 			<groupId>de.flapdoodle.embed</groupId>
 			<artifactId>de.flapdoodle.embed.mongo</artifactId>
-			<!-- <scope>test</scope> --> <!-- disable test scope -->
-		</dependency>
+			<scope>test</scope> disable test scope
+		</dependency> -->
 		<dependency>
 			<groupId>io.projectreactor</groupId>
 			<artifactId>reactor-test</artifactId>
